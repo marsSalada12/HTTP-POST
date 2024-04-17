@@ -1,21 +1,61 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>💡On-Off</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='toggle.css'>
-    
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="raphael-2.1.4.min.js"></script>
+	<script src="justgage.js"></script>
+	<link rel='stylesheet' type='text/css' media='screen' href='toggle.css'>
+	<title>ON-OFF</title>
 </head>
+
 <body>
-    <div class="acomodar">
-        <span class="on-off"></span>
-    </div>
-    <div id="container">
-        
-        <div class="toggle"></div>
-    </div>
-    <script src='toggle.js'></script>
+	<div class="acomodar">
+		<span class="on-off"></span>
+
+	</div>
+	<div id="container">
+
+		<button class="toggle" ></button>
+	</div>
+
+	<script>
+		var accessToken = "24f27fab26c278bf25fde775f94a5d510fc9beb8";
+		var deviceID = "e00fce680fc0e5b73b2899b8"
+
+		var url = "https://api.particle.io/v1/devices/" + deviceID + "/led";
+		var estado = "on"
+
+		function estadoFoco() {
+			$.post(url, { access_token: accessToken, params: estado }, (data, status) => {
+				if (status == "success") {
+					if (estado == "on") {
+
+						estado = "off"
+					} else {
+
+						estado = "on"
+					}
+
+				} else {
+					alert('ocurrio un error ')
+				}
+			})
+
+		}
+
+
+		var toggle = document.getElementById('container');
+		var body = document.querySelector('body');
+
+		toggle.onclick = function () {
+			toggle.classList.toggle('active');
+			body.classList.toggle('active');
+			estadoFoco()
+			
+		}
+	</script>
+
 </body>
+
 </html>
