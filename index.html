@@ -48,9 +48,9 @@
 			var hour = $('#hour').val();
 			var minute = $('#minute').val();
 
-			var args = year + "," + month + "," + day + "," + hour + "," + minutes;
+			var args = year + "," + month + "," + day + "," + hour + "," + minute;
 
-			$.post(url, { access_token: accessToken, params: fechaHora }, (data, status) => {
+			$.post(url, { access_token: accessToken, params: args }, (data, status) => {
 				if (status == "success") {
 					console.log("Fecha y hora enviadas correctamente: " + args);
 				} else {
@@ -66,7 +66,7 @@
 		toggle.onclick = function () {
 			toggle.classList.toggle('active');
 			body.classList.toggle('active');
-			enviarFechaHora();
+			
 		}
 	</script>
 
