@@ -6,7 +6,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="justgage.js"></script>
 	<link rel='stylesheet' type='text/css' media='screen' href='toggle.css'>
-	<title>ON-OFF</title>
+	<meta charset="utf-8">
+	<title>Alimentador</title>
 </head>
 
 <body>
@@ -38,9 +39,7 @@
 		var accessToken = "24f27fab26c278bf25fde775f94a5d510fc9beb8";
 		var deviceID = "e00fce680fc0e5b73b2899b8"
 
-		var url = "https://api.particle.io/v1/devices/" + deviceID + "/setDate";
-
-
+		var botonSetDate = "https://api.particle.io/v1/devices/" + deviceID + "/setDate";
 		$('#sendDateTime').click(function () {
 			var day = $('#day').val();
 			var month = $('#month').val();
@@ -50,14 +49,27 @@
 
 			var args = year + "," + month + "," + day + "," + hour + "," + minute;
 
-			$.post(url, { access_token: accessToken, params: args }, (data, status) => {
+			$.post(botonSetDate, { access_token: accessToken, args: args }, (data, status) => {
 				if (status == "success") {
-					args;
+					alert('Fecha y hora establecida');
 				} else {
 					alert('Ocurrió un error al enviar la fecha y hora');
 				}
 			});
 		})
+
+
+		var botonAlimentar = "https://api.particle.io/v1/devices/" + deviceID + "/setDate";
+		$('#feedFishBtn').click(function() {
+			$.post(botonAlimentar, { access_token: accessToken }, (data, status) => {
+				if (status == "success") {
+					alert('Pez alimentado');
+				}else{
+					alert('Ocurrio un error');
+				}
+			});
+		})
+		
 
 
 		var toggle = document.getElementById('container');
