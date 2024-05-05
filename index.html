@@ -59,7 +59,7 @@
 		})
 
 
-		var botonAlimentar = "https://api.particle.io/v1/devices/" + deviceID + "/setDate";
+		var botonAlimentar = "https://api.particle.io/v1/devices/" + deviceID + "/servoMotor";
 		$('#feedFishBtn').click(function() {
 			$.post(botonAlimentar, { access_token: accessToken }, (data, status) => {
 				if (status == "success") {
