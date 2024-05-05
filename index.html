@@ -15,19 +15,21 @@
 	<div id="container">
 
 		<label for="day">Día:</label>
-		<input type="number" id="day" name="day" min="1" max="31">
+		<input class="mi-input" type="number" id="day" name="day" min="1" max="31">
 		<label for="month">Mes:</label>
-		<input type="number" id="month" name="month" min="1" max="12">
+		<input class="mi-input" type="number" id="month" name="month" min="1" max="12">
 		<label for="year">Año:</label>
-		<input type="number" id="year" name="year" min="1900" max="2100">
+		<input class="mi-input" type="number" id="year" name="year" min="2000" max="2100">
 		<label for="hour">Hora:</label>
-		<input type="number" id="hour" name="hour" min="0" max="23">
+		<input class="mi-input" type="number" id="hour" name="hour" min="0" max="23">
 		<label for="minute">Minuto:</label>
-		<input type="number" id="minute" name="minute" min="0" max="59">
-		<button id="sendDateTime">Enviar Fecha y Hora</button>
+		<input class="mi-input" type="number" id="minute" name="minute" min="0" max="59">
+		<div class="botones-container">
+			<button class="boton" id="sendDateTime">Programar alimentador</button>
 
+			<button class="boton" id="feedFishBtn">Alimentame ahora</button>
+		</div>
 
-		<button class="toggle" id="feedFishBtn">Alimentame</button>
 		<div id="fishContainer">
 			<img id="fishFood" class="animada" src="comida.png" alt="Pez">
 			<img id="fishImg" class="animada" src="pez.jpg" alt="Pez">
@@ -60,16 +62,16 @@
 
 
 		var botonAlimentar = "https://api.particle.io/v1/devices/" + deviceID + "/servoMotor";
-		$('#feedFishBtn').click(function() {
+		$('#feedFishBtn').click(function () {
 			$.post(botonAlimentar, { access_token: accessToken }, (data, status) => {
 				if (status == "success") {
 					alert('Pez alimentado');
-				}else{
+				} else {
 					alert('Ocurrio un error');
 				}
 			});
 		})
-		
+
 
 
 		var toggle = document.getElementById('container');
@@ -78,7 +80,7 @@
 		toggle.onclick = function () {
 			toggle.classList.toggle('active');
 			body.classList.toggle('active');
-			
+
 		}
 	</script>
 

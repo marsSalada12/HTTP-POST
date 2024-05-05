@@ -4,56 +4,53 @@
     margin: 0;
 }
 
+.botones-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.boton {
+    margin-top: 15px;
+    left: 0;
+    width: 200px;
+    height: 50px;
+
+    border-radius: 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
 body {
-    background-color: #f8f8f8
+    background-color: black
 }
 
 #container {
-    background-color: #f8f8f8;
-    position: relative;
-    width: 80px;
-    height: 40px;
-    margin: 0px auto;
-    border-radius: 25px;
-
-}
-
-.acomodar {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-}
-
-.toggle {
-
-    top: 0;
-    left: 0;
-    width: 80px;
-    height: 40px;
-    border-radius: 25px;
-}
-
-.on-off::before {
-    content: "ON ";
-    color: white;
-    font-size: 24px;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: white;
 }
 
-.on-off::after {
-    font-size: 24px;
-    content: " OFF";
-    color: black;
+.mi-input {
+    border: 1px solid #ccc;
+    /* Ejemplo de borde (puedes ajustarlo) */
+    border-radius: 5px;
+    /* Redondea las esquinas con 5px */
+    height: 25px;
 }
+
 
 #container.active .toggle {
-    left: 40px;
+    left: 80px;
 }
 
-#fishFood {
-    width: 50px;
-    position: relative;
-    top: 20px;
-}
 
 body.active .animada {
     animation: movimiento 2s infinite;
@@ -61,25 +58,41 @@ body.active .animada {
 
 @keyframes movimiento {
     0% {
-        transform: none;
+        transform: scale3d();
     }
 
     50% {
-        transform: rotate(-20deg);
+        transform: rotate(-30deg);
     }
 
     100% {
-        transform: none;
+        transform: scale();
     }
 
 }
 
 #fishContainer {
-    position: relative;
+    display: flex;
+    justify-content: center;
+    /* Centrado horizontal */
+    align-items: center;
+    /* Centrado vertical */
+    width: 100%;
+    height: 20%;
+    /* Opcional: asegura que ocupe todo el ancho disponible */
+
+}
+
+#fishFood {
+    width: 100px;
+    position: absolute;
+    top: 20px;
 }
 
 #fishImg {
-    width: 100px;
-    bottom: -100;
-    position: relative;
+    width: 130px;
+    position: absolute;
+    bottom: 150;
+    left: 50%; /* o right: 50%; si prefieres alinearlo a la derecha */
+    transform: translateX(-50%); /* Centra horizontalmente */
 }
