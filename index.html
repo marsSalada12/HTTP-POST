@@ -12,27 +12,37 @@
 
 <body>
 
-	<div id="container">
+	<div id="container" class="container">
+		<div id="textoInicio" class="textoInicio">
+			Alimentador de Don Cangrejo
+		</div>
+		<div class="todo">
 
-		<label for="day">Día:</label>
-		<input class="mi-input" type="number" id="day" name="day" min="1" max="31">
-		<label for="month">Mes:</label>
-		<input class="mi-input" type="number" id="month" name="month" min="1" max="12">
-		<label for="year">Año:</label>
-		<input class="mi-input" type="number" id="year" name="year" min="2000" max="2100">
-		<label for="hour">Hora:</label>
-		<input class="mi-input" type="number" id="hour" name="hour" min="0" max="23">
-		<label for="minute">Minuto:</label>
-		<input class="mi-input" type="number" id="minute" name="minute" min="0" max="59">
+			<div class="inputs">
+				<label for="day">Día:</label>
+				<input class="mi-input" type="number" id="day" name="day" min="1" max="31">
+				<label for="month">Mes:</label>
+				<input class="mi-input" type="number" id="month" name="month" min="1" max="12">
+				<label for="year">Año:</label>
+				<input class="mi-input" type="number" id="year" name="year" min="2000" max="2100">
+			</div>
+
+			<div class="fishContainer">
+				<img id="fishFood" class="animada" src="comida.png" alt="comida">
+				<img id="fishImg" class="animada" src="pez.png" alt="Pez">
+			</div>
+
+			<div class="inputs">
+				<label for="hour">Hora:</label>
+				<input class="mi-input" type="number" id="hour" name="hour" min="0" max="23">
+				<label for="minute">Minuto:</label>
+				<input class="mi-input" type="number" id="minute" name="minute" min="0" max="59">
+			</div>
+
+		</div>
 		<div class="botones-container">
 			<button class="boton" id="sendDateTime">Programar alimentador</button>
-
 			<button class="boton" id="feedFishBtn">Alimentame ahora</button>
-		</div>
-
-		<div id="fishContainer">
-			<img id="fishFood" class="animada" src="comida.png" alt="Pez">
-			<img id="fishImg" class="animada" src="pez.jpg" alt="Pez">
 		</div>
 
 	</div>
@@ -72,15 +82,12 @@
 			});
 		})
 
-
-
 		var toggle = document.getElementById('container');
 		var body = document.querySelector('body');
 
 		toggle.onclick = function () {
 			toggle.classList.toggle('active');
 			body.classList.toggle('active');
-
 		}
 	</script>
 
